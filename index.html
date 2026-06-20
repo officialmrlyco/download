@@ -152,12 +152,30 @@
     .tutorial-head h2 em{font-style:normal;color:var(--gd)}
     .tutorial-head p{color:var(--text2);font-size:.9rem;line-height:1.75;font-weight:650}
     .tutorial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .video-frame{position:relative;aspect-ratio:16/9;border-radius:var(--r16);overflow:hidden;background:var(--surface2);border:1.5px solid var(--border);margin-bottom:14px}
-    .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-    .video-empty{height:100%;display:grid;place-items:center;text-align:center;padding:16px;color:var(--text3);font-size:.78rem;font-weight:900}
-    .tutorial-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
-    .tutorial-chip{border-radius:var(--pill);padding:4px 9px;background:rgba(251,191,36,.14);border:1px solid rgba(251,191,36,.28);color:var(--yd);font-size:.64rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em}
-    .tutorial-link{display:inline-flex;margin-top:10px;color:var(--gd);font-size:.78rem;font-weight:900;text-decoration:none}
+    .tutorial-card{cursor:pointer;text-align:left}
+    .tutorial-card:focus-visible{outline:3px solid rgba(16,185,129,.45);outline-offset:3px}
+    .video-thumb{position:relative;aspect-ratio:16/9;border-radius:var(--r16);overflow:hidden;background:var(--surface2);border:1.5px solid var(--border);margin-bottom:14px}
+    .video-thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.92)}
+    .video-placeholder{height:100%;display:grid;place-items:center;text-align:center;padding:16px;color:var(--text3);font-size:.78rem;font-weight:900;background:linear-gradient(135deg,rgba(16,185,129,.12),rgba(251,191,36,.10))}
+    .play-mark{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:var(--pill);display:grid;place-items:center;background:rgba(9,13,12,.74);border:1.5px solid rgba(255,255,255,.18);color:#fff;box-shadow:var(--cs)}
+    .play-mark::before{content:"";display:block;width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:14px solid currentColor;margin-left:3px}
+    .tutorial-meta{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin-bottom:8px}
+    .tutorial-chip,.tutorial-label{border-radius:var(--pill);padding:4px 9px;font-size:.64rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em}
+    .tutorial-chip{background:rgba(251,191,36,.14);border:1px solid rgba(251,191,36,.28);color:var(--yd)}
+    .tutorial-label{background:rgba(16,185,129,.13);border:1px solid rgba(16,185,129,.27);color:var(--gd)}
+    .tutorial-duration{color:var(--text3);font-size:.74rem;font-weight:900}
+    .view-all-row{display:flex;justify-content:center;margin-top:18px}
+
+    .video-modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px;background:rgba(0,0,0,.72)}
+    .video-modal[hidden]{display:none}
+    body.modal-open{overflow:hidden}
+    .modal-dialog{width:min(920px,100%);background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r20);box-shadow:var(--cl);overflow:hidden}
+    .modal-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 18px;border-bottom:1.5px solid var(--border)}
+    .modal-head h2{margin:0;font-size:.98rem}
+    .modal-close{width:34px;height:34px;border-radius:var(--pill);border:1.5px solid var(--border);background:var(--surface2);color:var(--text2);cursor:pointer;font-size:1.25rem;line-height:1}
+    .modal-frame{aspect-ratio:16/9;background:#000}
+    .modal-frame iframe{width:100%;height:100%;border:0;display:block}
+    .modal-empty{min-height:260px;display:grid;place-items:center;text-align:center;padding:28px;color:var(--text2);font-weight:800;background:var(--surface2)}
 
     footer{background:var(--surface);border-top:2px solid var(--border);padding:34px 32px 24px;transition:background .25s,border-color .25s}
     .ft-in{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.2fr repeat(3,1fr);gap:24px;align-items:start}
@@ -201,7 +219,7 @@
       <a href="https://bingwaflash.co.ke/#features">Features</a>
       <a href="https://bingwaflash.co.ke/#workflow">How it works</a>
       <a class="on" href="/">Download</a>
-      <a href="#tutorials">Tutorials</a>
+      <a href="/tutorials/">Tutorials</a>
       <a href="#contacts">Contact</a>
     </nav>
     <div class="hdr-r">
@@ -301,15 +319,18 @@
         <div class="tutorial-head reveal">
           <div>
             <div class="tag">Tutorials</div>
-            <h2>Guides for install, permissions and <em>first transactions.</em></h2>
+            <h2>First three guides for install and <em>setup.</em></h2>
           </div>
-          <p>Watch setup walkthroughs as they are published. If a video is not available yet, use the contact links above for help.</p>
+          <p>Only the first three tutorial thumbnails show here. Open the full tutorials page to search, filter by category, and play videos in a popup.</p>
         </div>
         <div id="tutorialGrid" class="tutorial-grid" aria-live="polite"></div>
+        <div class="view-all-row reveal">
+          <a class="ghost-link" href="/tutorials/">View all tutorials</a>
+        </div>
         <noscript>
           <div class="tutorial-card">
             <small>Tutorials</small>
-            <h2>Enable JavaScript to view embedded guides</h2>
+            <h2>Enable JavaScript to view tutorial thumbnails</h2>
             <p>Email support@bingwaflash.co.ke for setup help if your browser blocks scripts.</p>
           </div>
         </noscript>
@@ -317,17 +338,27 @@
     </section>
   </main>
 
+  <div class="video-modal" id="videoModal" hidden>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle">
+      <div class="modal-head">
+        <h2 id="videoModalTitle">Tutorial</h2>
+        <button class="modal-close" type="button" data-video-close aria-label="Close video">x</button>
+      </div>
+      <div class="modal-frame" id="videoModalFrame"></div>
+    </div>
+  </div>
+
   <footer>
     <div class="ft-in">
       <div class="ft-about">
         <a class="ft-logo" href="https://bingwaflash.co.ke/"><img src="/logo.png" alt="Bingwa Flash"><span class="ft-name">Bingwa Flash</span></a>
-        <p>Official installer page for Bingwa Flash, with setup contacts and tutorial embeds for agents.</p>
+        <p>Official installer page for Bingwa Flash, with setup contacts and thumbnail-based tutorial guides for agents.</p>
       </div>
       <div class="ft-col">
         <h2>Install</h2>
         <div class="ft-links">
           <a href="/">Download APK</a>
-          <a href="#tutorials">Tutorials</a>
+          <a href="/tutorials/">Tutorials</a>
           <a href="#contacts">Contact</a>
           <a href="https://bingwaflash.co.ke/#workflow">Workflow</a>
         </div>
@@ -353,6 +384,7 @@
     <div class="ft-copy">&copy; 2026 Bingwa Flash. Official download and setup support page.</div>
   </footer>
 
+  <script src="/tutorials.js"></script>
   <script>
     // Download page shares the same saved light/dark preference as root and order pages.
     function syncThemeIcon() {
@@ -370,75 +402,14 @@
     };
     syncThemeIcon();
 
-    // Add or edit tutorial cards here: title, category, summary, and an unlisted YouTube URL when ready.
-    var tutorialVideos = [
-      {
-        title: "Install and first permission check",
-        category: "Setup",
-        summary: "Walk through the APK install, Android install-source prompt, and the permissions to confirm before using automation.",
-        youtubeUrl: "https://youtu.be/4otIYfDQsDs"
-      },
-      {
-        title: "Create your first offer mapping",
-        category: "Offers",
-        summary: "Show how an agent checks the offer, SIM choice, and USSD path before serving real customers.",
-        youtubeUrl: "https://youtu.be/XdB2ZJNlDyY"
-      },
-      {
-        title: "Run one safe test transaction",
-        category: "Transactions",
-        summary: "Use a small test request to confirm carrier response capture, transaction history, and recovery states.",
-        youtubeUrl: ""
-      },
-      {
-        title: "Web orders and customer links",
-        category: "Web orders",
-        summary: "Explain what to review before sharing an order link, including active offers and payment readiness.",
-        youtubeUrl: ""
-      }
-    ];
-
-    function escapeHtml(value) {
-      return String(value || "").replace(/[&<>"']/g, function (char) {
-        return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char];
+    // The download page intentionally shows only three featured tutorials; the full library is /tutorials/.
+    if (window.BingwaTutorials) {
+      window.BingwaTutorials.renderPreview({
+        gridId: "tutorialGrid",
+        modalId: "videoModal",
+        limit: 3
       });
     }
-    function youtubeEmbedUrl(value) {
-      if (!value) return "";
-      try {
-        var parsed = new URL(value);
-        var host = parsed.hostname.replace(/^www\./, "");
-        var id = "";
-        if (host === "youtu.be") id = parsed.pathname.split("/").filter(Boolean)[0] || "";
-        if (host === "youtube.com" || host === "m.youtube.com") {
-          if (parsed.pathname === "/watch") id = parsed.searchParams.get("v") || "";
-          if (parsed.pathname.indexOf("/shorts/") === 0) id = parsed.pathname.split("/")[2] || "";
-          if (parsed.pathname.indexOf("/embed/") === 0) id = parsed.pathname.split("/")[2] || "";
-        }
-        return id ? "https://www.youtube.com/embed/" + encodeURIComponent(id) : "";
-      } catch (error) {
-        return "";
-      }
-    }
-    function renderTutorials() {
-      var grid = document.getElementById("tutorialGrid");
-      if (!grid) return;
-      grid.innerHTML = tutorialVideos.map(function (item) {
-        var embed = youtubeEmbedUrl(item.youtubeUrl);
-        var frame = embed
-          ? '<iframe src="' + embed + '" title="' + escapeHtml(item.title) + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>'
-          : '<div class="video-empty">Video coming soon</div>';
-        var link = item.youtubeUrl ? '<a class="tutorial-link" href="' + escapeHtml(item.youtubeUrl) + '" target="_blank" rel="noopener">Open on YouTube</a>' : "";
-        return '<article class="tutorial-card reveal on">' +
-          '<div class="video-frame">' + frame + '</div>' +
-          '<div class="tutorial-meta"><small>Tutorial</small><span class="tutorial-chip">' + escapeHtml(item.category) + '</span></div>' +
-          '<h2>' + escapeHtml(item.title) + '</h2>' +
-          '<p>' + escapeHtml(item.summary) + '</p>' +
-          link +
-          '</article>';
-      }).join("");
-    }
-    renderTutorials();
 
     // Keep the installer page light on older Android browsers while still adding polish.
     (function () {
