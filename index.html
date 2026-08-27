@@ -9,7 +9,7 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Download Bingwa Flash | Latest Apk Install</title>
+  <title>Download Bingwa Flash v1.3.8 | Official Android APK</title>
   <meta name="description" content="Download the latest Bingwa Flash APK for Android agents. Direct installation for USSD automation, web orders, retries, relay tools and transaction recovery.">
   <!-- Search engines must be allowed to crawl this page so they can see the noindex instruction and drop it from results. -->
   <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex">
@@ -122,6 +122,9 @@
     .btn-download{width:100%;padding:14px 20px;background:linear-gradient(135deg,var(--g),var(--gd));color:#fff;box-shadow:var(--cg)}
     .note{margin-top:13px;color:var(--text3);font-size:.74rem;font-weight:700;line-height:1.6;text-align:center}
     .note strong{color:var(--text2)}
+    .integrity{margin-top:18px;padding:14px 15px;border:1.5px solid var(--border);border-radius:var(--r12);background:var(--surface2)}
+    .integrity strong{display:block;margin-bottom:5px;font-size:.76rem;color:var(--text)}
+    .integrity code{display:block;color:var(--text3);font-size:.68rem;line-height:1.55;overflow-wrap:anywhere;user-select:all}
 
     /* Side panels explain requirements and setup without hiding important permissions. */
     .side{display:grid;gap:16px}
@@ -194,7 +197,8 @@
     .reveal.on{opacity:1;transform:none}
 
     @media(max-width:900px){
-      .layout{grid-template-columns:1fr}.side{order:-1;grid-template-columns:repeat(2,1fr)}
+      /* Keep the installer card first when the layout stacks; setup help follows the primary action. */
+      .layout{grid-template-columns:1fr}.side{grid-template-columns:repeat(2,1fr)}
       .meta{grid-template-columns:repeat(3,1fr)}
       .contact-grid,.tutorial-grid{grid-template-columns:repeat(2,1fr)}
       .tutorial-head{grid-template-columns:1fr}
@@ -245,28 +249,35 @@
     <div class="wrap">
       <div class="layout">
         <section class="card reveal" aria-label="Latest Bingwa Flash APK">
-          <div class="release"><span>Latest supported release</span><strong>v1.3.7 - Build 37</strong></div>
+          <div class="release"><span>Latest supported release</span><strong>v1.3.8 - Build 38</strong></div>
           <div class="body">
             <div class="meta">
-              <div class="stat"><small>File size</small><strong>15.2 MB</strong></div>
-              <div class="stat"><small>Released</small><strong>Aug 14, 2026</strong></div>
+              <div class="stat"><small>File size</small><strong>15.3 MB</strong></div>
+              <div class="stat"><small>Released</small><strong>Aug 27, 2026</strong></div>
               <div class="stat"><small>Platform</small><strong>Android 7+</strong></div>
             </div>
-            <h2>What this release is for</h2>
+            <h2>What is new in v1.3.8</h2>
             <ul class="release-list">
-              <li>USSD automation with mapped offer flows and guarded transaction states.</li>
-              <li>Tracer support, UI changes, minor adjustments, bug fixes and performance improvements.</li>
-              <li>Web orders, relay workflows, retry recovery, alerts and transaction history.</li>
+              <li>A redesigned Offers catalogue with compact routes, fixed search and category controls, safer offer collision review, and clearer mapping, verifier, retry, and Auto Time actions.</li>
+              <li>A guided Relay setup for Sender and Receiver using SMS, Online, Hotspot/Wi-Fi, or Bluetooth, with built-in QR pairing and normal transaction history.</li>
+              <li>More reliable payment queues, pending-work recovery, retry wake-ups, and accurate Accessibility readiness so one failed handoff cannot hold every later transaction.</li>
+              <li>Refreshed Settings, Site Link, Auto Reply, Client, Transaction Detail, Quick Dial, and Statistics screens with safer editing and clearer save or failure feedback.</li>
+              <li>Quick Dial contact search keeps customer-number input numeric, while Auto Reply templates use protected bottom-sheet editing.</li>
+              <li>Stronger security PIN recovery, mapping-learning validation, Relay duplicate protection, sender auto-reply isolation, and lower-memory transaction and M-Pesa history handling.</li>
             </ul>
-            <a class="btn-download" href="https://github.com/officialmrlyco/BingwaFlashApp/releases/download/v37/BingwaFlash_v1.3.7.apk">Download APK - v1.3.7</a>
+            <a class="btn-download" href="https://github.com/officialmrlyco/BingwaFlashApp/releases/download/v38/BingwaFlash_v1.3.8.apk">Download APK - v1.3.8</a>
             <p class="note">Android may ask you to allow installation from this browser before opening the APK. Only install from this official Bingwa Flash link.</p>
+            <div class="integrity">
+              <strong>APK SHA-256 checksum</strong>
+              <code>b484049d887127a6bbd909f3dfa648f7e84fb7cea78761bca62960cb7c5ea5a2</code>
+            </div>
 
             <div class="install-steps">
               <h2>After downloading</h2>
               <ol class="steps-list">
                 <li>Open the APK from your Downloads folder and allow install from this source if Android asks.</li>
-                <li>Enable the required SMS, phone and accessibility permissions only for the automation features you use.</li>
-                <li>Set your offers, SIM choice, USSD mappings, retry rules and web order settings before going live.</li>
+                <li>Review each permission request and enable only the features you intend to use.</li>
+                <li>Set your offers, SIM choice, USSD mappings, retry rules, alerts, and optional online tools before going live.</li>
               </ol>
             </div>
           </div>

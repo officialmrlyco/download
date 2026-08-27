@@ -2,6 +2,8 @@
 
 This repository publishes the direct installer page for `download.bingwaflash.co.ke`.
 
+Current release: Bingwa Flash `v1.3.8` (Build `38`). The installer button points to the immutable GitHub release asset tagged `v38`, and the page publishes the release SHA-256 checksum for verification.
+
 The page intentionally uses `noindex` meta tags instead of a blocking `robots.txt` rule. Search crawlers must be able to fetch the page before they can remove it from search results.
 
 Cloudflare DNS should contain this record:
