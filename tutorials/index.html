@@ -1,269 +1,82 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="dark">
 <head>
-  <script>
-    (function () {
-      var theme = localStorage.getItem("bf-theme") || "dark";
-      document.documentElement.setAttribute("data-theme", theme);
-    })();
-  </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bingwa Flash Tutorials | Video Guides</title>
-  <meta name="description" content="Search Bingwa Flash setup, permissions, transactions and web order tutorial videos.">
+  <meta name="description" content="Search Bingwa Flash setup, permissions, transactions, and web order tutorial videos.">
   <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex">
   <meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet,noimageindex">
   <link rel="canonical" href="https://download.bingwaflash.co.ke/tutorials/">
   <link rel="icon" type="image/png" href="/logo.png">
   <link rel="apple-touch-icon" href="/logo.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --y:#FBBF24;--yd:#F59E0B;--g:#10B981;--gd:#059669;--r12:12px;--r16:16px;--r20:20px;--pill:999px;
-      --cs:0 2px 0 rgba(0,0,0,.15),0 6px 20px rgba(0,0,0,.12),inset 0 1px 0 rgba(255,255,255,.1);
-      --cl:0 6px 0 rgba(0,0,0,.2),0 20px 56px rgba(0,0,0,.2),inset 0 2px 0 rgba(255,255,255,.1);
-      --cg:0 4px 0 rgba(18,100,45,.28),0 10px 28px rgba(34,197,94,.22),inset 0 1px 0 rgba(150,255,200,.4);
-    }
-    [data-theme="dark"]{
-      --bg:#0B0F0D;--surface:#111715;--surface2:#18201D;--border:#26302C;--border2:#34423D;
-      --text:#F7FAF8;--text2:#C7D2CC;--text3:#84918A;--hbg:rgba(9,13,12,.92);--card-bg:#141A18;--card-end:#101613;
-    }
-    [data-theme="light"]{
-      --bg:#FFF8DB;--surface:#FFFFFF;--surface2:#FFFCF2;--border:#F0D889;--border2:#E9D8A7;
-      --text:#18231F;--text2:#3F4A45;--text3:#708078;--hbg:rgba(255,252,242,.94);--card-bg:#FFFFFF;--card-end:#FFF9E8;
-    }
-    html{scroll-behavior:smooth}
-    body{min-height:100vh;background:var(--bg);color:var(--text);font-family:"Nunito",sans-serif;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background .25s,color .25s}
-    body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 620px 480px at -8% -8%,rgba(251,191,36,.10) 0%,transparent 66%),radial-gradient(ellipse 560px 430px at 108% 20%,rgba(16,185,129,.11) 0%,transparent 66%),var(--bg)}
-    a{color:inherit}
-    .wrap{width:min(1120px,calc(100% - 40px));margin:0 auto}
-
-    header{position:sticky;top:0;z-index:50;height:64px;padding:0 32px;background:var(--hbg);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:2px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:20px;transition:background .25s,border-color .25s}
-    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0}
-    .logo img{width:36px;height:36px;border-radius:var(--r12);object-fit:contain}
-    .logo-text{font-family:"Sora",sans-serif;font-size:.93rem;font-weight:700;color:var(--text);white-space:nowrap}
-    .logo-text b{color:var(--gd);font-weight:800}
-    nav{display:flex;align-items:center;gap:4px}
-    nav a{font-size:.81rem;font-weight:800;color:var(--text2);text-decoration:none;padding:7px 13px;border-radius:var(--pill);transition:all .15s}
-    nav a:hover,nav a.on{background:rgba(251,191,36,.13);color:var(--text)}
-    .hdr-r{display:flex;align-items:center;gap:8px}
-    .thm{width:36px;height:36px;border-radius:var(--pill);background:var(--surface2);border:2px solid var(--border);color:var(--text2);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
-    .thm:hover{border-color:var(--y);color:var(--text)}
-    .thm svg{width:15px;height:15px}
-    .hdr-cta,.ghost-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;border-radius:var(--pill);font-family:"Sora",sans-serif;font-size:.86rem;font-weight:900;transition:transform .15s,box-shadow .15s,border-color .15s}
-    .hdr-cta{padding:9px 18px;background:linear-gradient(135deg,var(--g),var(--gd));color:#fff;box-shadow:var(--cg)}
-    .ghost-link{padding:11px 16px;background:var(--surface2);border:1.5px solid var(--border);color:var(--text2)}
-    .hdr-cta:hover,.ghost-link:hover{transform:translateY(-2px)}
-
-    .hero{padding:54px 0 34px;background:rgba(255,255,255,.025);border-bottom:1px solid rgba(255,255,255,.055)}
-    .breadcrumb{display:flex;align-items:center;gap:8px;color:var(--text3);font-size:.77rem;font-weight:800;margin-bottom:17px}
-    .breadcrumb a{text-decoration:none;color:var(--text3)}
-    .tag{display:inline-flex;align-items:center;gap:8px;border-radius:var(--pill);padding:6px 13px;background:rgba(16,185,129,.11);border:1.5px solid rgba(16,185,129,.24);color:var(--gd);font-size:.72rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
-    h1{font-family:"Sora",sans-serif;font-size:clamp(2rem,4.4vw,3.25rem);font-weight:900;line-height:1.08;letter-spacing:0;color:var(--text);margin:16px 0 10px}
-    h1 em{font-style:normal;color:var(--gd)}
-    .hero p{max-width:690px;color:var(--text2);font-size:1rem;line-height:1.74;font-weight:650}
-
-    .library{padding:28px 0 74px}
-    .tools{display:grid;gap:14px;margin-bottom:18px}
-    .search{width:100%;border:1.5px solid var(--border);border-radius:var(--r12);background:var(--surface);color:var(--text);padding:13px 15px;font:800 .92rem "Nunito",sans-serif;outline:none}
-    .search:focus{border-color:rgba(16,185,129,.45);box-shadow:0 0 0 4px rgba(16,185,129,.12)}
-    .category-tabs{display:flex;flex-wrap:wrap;gap:8px}
-    .category-tab{appearance:none;border:1.5px solid var(--border);background:var(--surface);color:var(--text2);cursor:pointer;border-radius:var(--pill);padding:7px 13px;font-family:"Nunito",sans-serif;font-size:.78rem;font-weight:900;transition:background .15s,border-color .15s,color .15s,transform .15s}
-    .category-tab:hover{transform:translateY(-1px);border-color:rgba(16,185,129,.34);color:var(--text)}
-    .category-tab.on{background:rgba(16,185,129,.13);border-color:rgba(16,185,129,.42);color:var(--gd)}
-    .tutorial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .tutorial-card{background:linear-gradient(180deg,var(--card-bg),var(--card-end));border:1.5px solid var(--border);border-radius:var(--r20);padding:20px;box-shadow:var(--cs);cursor:pointer;text-align:left;transition:transform .18s,border-color .18s,background .25s}
-    .tutorial-card:hover{transform:translateY(-3px);border-color:rgba(16,185,129,.38)}
-    .tutorial-card:focus-visible{outline:3px solid rgba(16,185,129,.45);outline-offset:3px}
-    .tutorial-card small{display:block;margin-bottom:7px;color:var(--gd);font-size:.66rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
-    .tutorial-card h2{font-family:"Sora",sans-serif;font-size:.98rem;font-weight:900;color:var(--text);margin-bottom:8px}
-    .tutorial-card p{color:var(--text2);font-size:.8rem;line-height:1.65;font-weight:650;margin-bottom:0}
-    .video-thumb{position:relative;aspect-ratio:16/9;border-radius:var(--r16);overflow:hidden;background:var(--surface2);border:1.5px solid var(--border);margin-bottom:14px}
-    .video-thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.92)}
-    .video-placeholder{height:100%;display:grid;place-items:center;text-align:center;padding:16px;color:var(--text3);font-size:.78rem;font-weight:900;background:linear-gradient(135deg,rgba(16,185,129,.12),rgba(251,191,36,.10))}
-    .play-mark{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:var(--pill);display:grid;place-items:center;background:rgba(9,13,12,.74);border:1.5px solid rgba(255,255,255,.18);color:#fff;box-shadow:var(--cs)}
-    .play-mark::before{content:"";display:block;width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:14px solid currentColor;margin-left:3px}
-    .tutorial-meta{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin-bottom:8px}
-    .tutorial-chip,.tutorial-label{border-radius:var(--pill);padding:4px 9px;font-size:.64rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em}
-    .tutorial-chip{background:rgba(251,191,36,.14);border:1px solid rgba(251,191,36,.28);color:var(--yd)}
-    .tutorial-label{background:rgba(16,185,129,.13);border:1px solid rgba(16,185,129,.27);color:var(--gd)}
-    .tutorial-duration{color:var(--text3);font-size:.74rem;font-weight:900}
-    .empty-state{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r16);padding:22px;color:var(--text2);font-weight:800;text-align:center}
-    .empty-state[hidden]{display:none}
-
-    .video-modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px;background:rgba(0,0,0,.72)}
-    .video-modal[hidden]{display:none}
-    body.modal-open{overflow:hidden}
-    .modal-dialog{width:min(920px,100%);background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r20);box-shadow:var(--cl);overflow:hidden}
-    .modal-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 18px;border-bottom:1.5px solid var(--border)}
-    .modal-head h2{margin:0;font-size:.98rem;font-family:"Sora",sans-serif}
-    .modal-close{width:34px;height:34px;border-radius:var(--pill);border:1.5px solid var(--border);background:var(--surface2);color:var(--text2);cursor:pointer;font-size:1.25rem;line-height:1}
-    .modal-frame{aspect-ratio:16/9;background:#000}
-    .modal-frame iframe{width:100%;height:100%;border:0;display:block}
-    .modal-empty{min-height:260px;display:grid;place-items:center;text-align:center;padding:28px;color:var(--text2);font-weight:800;background:var(--surface2)}
-
-    footer{background:var(--surface);border-top:2px solid var(--border);padding:34px 32px 24px;transition:background .25s,border-color .25s}
-    .ft-in{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.2fr repeat(3,1fr);gap:24px;align-items:start}
-    .ft-logo{display:flex;align-items:center;gap:9px;text-decoration:none;color:inherit}
-    .ft-logo img{width:26px;height:26px;border-radius:7px;object-fit:contain}
-    .ft-name{font-family:"Sora",sans-serif;font-size:.82rem;font-weight:800;color:var(--text2)}
-    .ft-about{display:grid;gap:12px}
-    .ft-about p{max-width:320px;color:var(--text3);font-size:.78rem;font-weight:700;line-height:1.65}
-    .ft-col{display:grid;gap:9px}
-    .ft-col h2{font-family:"Sora",sans-serif;font-size:.78rem;font-weight:900;color:var(--text);margin-bottom:3px}
-    .ft-links{display:grid;gap:8px}
-    .ft-links a,.ft-links span{font-size:.76rem;font-weight:800;color:var(--text3);text-decoration:none;transition:color .15s}
-    .ft-links a:hover{color:var(--text2)}
-    .ft-copy{max-width:1120px;margin:24px auto 0;padding-top:16px;border-top:1.5px solid var(--border);font-size:.72rem;color:var(--text3);font-weight:700}
-    .reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
-    .reveal.on{opacity:1;transform:none}
-
-    @media(max-width:900px){.tutorial-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:740px){
-      header{height:60px;padding:0 16px}nav{display:none}.logo-text{font-size:.88rem}.hdr-cta{padding:8px 13px;font-size:.78rem}
-      .wrap{width:min(100% - 32px,1120px)}.hero{padding:40px 0 30px}.library{padding-bottom:54px}
-      .tutorial-grid{grid-template-columns:1fr}.ft-in{grid-template-columns:1fr;text-align:left}.ft-copy{text-align:left}
-    }
-  </style>
+  <link rel="stylesheet" href="/styles.css?v=20260830">
+  <script src="/theme.js?v=20260830"></script>
 </head>
 <body>
-  <header>
-    <a class="logo" href="/" aria-label="Bingwa Flash download home">
-      <img src="/logo.png" alt="Bingwa Flash">
-      <span class="logo-text">Bingwa <b>Flash</b></span>
+  <header class="site-header">
+    <a class="brand" href="https://bingwaflash.co.ke/" aria-label="Bingwa Flash home">
+      <img src="/logo.png" alt="Bingwa Flash logo">
+      <span class="brand-name">Bingwa <b>Flash</b></span>
     </a>
-    <nav aria-label="Site navigation">
+    <nav class="site-nav" id="siteNav" aria-label="Site navigation">
       <a href="https://bingwaflash.co.ke/">Home</a>
       <a href="/">Download</a>
-      <a class="on" href="/tutorials/">Tutorials</a>
+      <a href="/tutorials/" aria-current="page">Tutorials</a>
       <a href="/#contacts">Contact</a>
     </nav>
-    <div class="hdr-r">
-      <button class="thm" onclick="toggleTheme()" type="button" title="Toggle theme" aria-label="Toggle dark/light mode">
-        <svg id="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-        <svg id="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
-      </button>
-      <a class="hdr-cta" href="/">Download APK</a>
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme"><span data-theme-icon aria-hidden="true">☼</span></button>
+      <button class="menu-toggle" type="button" data-menu-toggle aria-controls="siteNav" aria-expanded="false" aria-label="Open navigation">☰</button>
+      <a class="header-cta" href="/">Get the app</a>
     </div>
   </header>
 
   <main>
-    <section class="hero">
+    <section class="page-intro">
       <div class="wrap">
         <div class="breadcrumb"><a href="/">Download</a><span>/</span><span>Tutorials</span></div>
-        <div class="tag">Video guides</div>
-        <h1>Search setup videos and <em>play them in a popup.</em></h1>
-        <p>Use this page for all Bingwa Flash videos. Add more items in tutorials.js, give each one a category and optional label, and this page will sort itself into searchable groups.</p>
+        <div class="eyebrow">Bingwa Flash guides</div>
+        <h1>Find the right answer, <em>then get moving.</em></h1>
+        <p class="lede">Search setup, permissions, transactions, and web order guides. Select a card to open its video in a focused popup.</p>
       </div>
     </section>
 
     <section class="library">
       <div class="wrap">
-        <div class="tools">
-          <input class="search" id="tutorialSearch" type="search" placeholder="Search tutorials..." autocomplete="off">
+        <div class="search-panel">
+          <label for="tutorialSearch"><strong>Search the library</strong></label>
+          <input class="search" id="tutorialSearch" type="search" placeholder="Try “permissions” or “offer mapping”" autocomplete="off">
           <div class="category-tabs" id="tutorialTabs" aria-label="Tutorial categories"></div>
         </div>
         <div id="tutorialGrid" class="tutorial-grid" aria-live="polite"></div>
-        <div class="empty-state" id="tutorialEmpty" hidden>No tutorials match that search.</div>
-        <noscript>
-          <div class="empty-state">Enable JavaScript to search and open tutorial videos.</div>
-        </noscript>
+        <div class="empty-state" id="tutorialEmpty" hidden>No tutorials match that search. Try another phrase or category.</div>
+        <noscript><div class="empty-state">Enable JavaScript to search and open tutorial videos.</div></noscript>
       </div>
     </section>
   </main>
 
   <div class="video-modal" id="videoModal" hidden>
     <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle">
-      <div class="modal-head">
-        <h2 id="videoModalTitle">Tutorial</h2>
-        <button class="modal-close" type="button" data-video-close aria-label="Close video">x</button>
-      </div>
+      <div class="modal-head"><h2 id="videoModalTitle">Tutorial</h2><button class="modal-close" type="button" data-video-close aria-label="Close video">×</button></div>
       <div class="modal-frame" id="videoModalFrame"></div>
     </div>
   </div>
 
   <footer>
-    <div class="ft-in">
-      <div class="ft-about">
-        <a class="ft-logo" href="/"><img src="/logo.png" alt="Bingwa Flash"><span class="ft-name">Bingwa Flash</span></a>
-        <p>All setup video guides for the official Bingwa Flash installer page.</p>
-      </div>
-      <div class="ft-col">
-        <h2>Install</h2>
-        <div class="ft-links">
-          <a href="/">Download APK</a>
-          <a href="/tutorials/">Tutorials</a>
-          <a href="/#contacts">Contact</a>
-        </div>
-      </div>
-      <div class="ft-col">
-        <h2>Community</h2>
-        <div class="ft-links">
-          <a href="https://chat.whatsapp.com/H2YoZHNmiuB6cxWsfOPV1I" target="_blank" rel="noopener">WhatsApp group</a>
-          <a href="https://whatsapp.com/channel/0029Vb6r1jRJf05mxTtr3G2x" target="_blank" rel="noopener">WhatsApp channel</a>
-          <a href="https://t.me/bingwaflash" target="_blank" rel="noopener">Telegram</a>
-        </div>
-      </div>
-      <div class="ft-col">
-        <h2>Email</h2>
-        <div class="ft-links">
-          <a href="mailto:support@bingwaflash.co.ke">support@bingwaflash.co.ke</a>
-          <a href="mailto:bingwaflash@gmail.com">bingwaflash@gmail.com</a>
-          <a href="https://bingwaflash.co.ke/privacy.html">Privacy Policy</a>
-          <a href="https://bingwaflash.co.ke/terms.html">Terms</a>
-        </div>
-      </div>
+    <div class="wrap footer-grid">
+      <div class="footer-about"><a class="brand" href="https://bingwaflash.co.ke/"><img src="/logo.png" alt="Bingwa Flash logo"><span class="brand-name">Bingwa <b>Flash</b></span></a><p>Official setup videos and install support for Bingwa Flash agents.</p></div>
+      <div class="footer-col"><h2>Install</h2><a href="/">Download APK</a><a href="/tutorials/">Tutorials</a><a href="/#contacts">Contact</a></div>
+      <div class="footer-col"><h2>Community</h2><a href="https://chat.whatsapp.com/H2YoZHNmiuB6cxWsfOPV1I" target="_blank" rel="noopener">WhatsApp group</a><a href="https://whatsapp.com/channel/0029Vb6r1jRJf05mxTtr3G2x" target="_blank" rel="noopener">WhatsApp channel</a><a href="https://t.me/bingwaflash" target="_blank" rel="noopener">Telegram</a></div>
+      <div class="footer-col"><h2>Email and legal</h2><a href="mailto:support@bingwaflash.co.ke">support@bingwaflash.co.ke</a><a href="mailto:bingwaflash@gmail.com">bingwaflash@gmail.com</a><a href="https://bingwaflash.co.ke/privacy.html">Privacy Policy</a><a href="https://bingwaflash.co.ke/terms.html">Terms</a></div>
     </div>
-    <div class="ft-copy">&copy; 2026 Bingwa Flash. Official setup videos and install support.</div>
+    <div class="wrap footer-copy">© 2026 Bingwa Flash. Official setup videos and install support.</div>
   </footer>
 
   <script src="/tutorials.js"></script>
   <script>
-    function syncThemeIcon() {
-      var dark = document.documentElement.getAttribute("data-theme") === "dark";
-      var moon = document.getElementById("ico-moon");
-      var sun = document.getElementById("ico-sun");
-      if (moon) moon.style.display = dark ? "block" : "none";
-      if (sun) sun.style.display = dark ? "none" : "block";
-    }
-    window.toggleTheme = function () {
-      var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", next);
-      localStorage.setItem("bf-theme", next);
-      syncThemeIcon();
-    };
-    syncThemeIcon();
-
-    if (window.BingwaTutorials) {
-      window.BingwaTutorials.renderLibrary({
-        gridId: "tutorialGrid",
-        tabsId: "tutorialTabs",
-        searchId: "tutorialSearch",
-        emptyId: "tutorialEmpty",
-        modalId: "videoModal"
-      });
-    }
-
-    (function () {
-      var items = document.querySelectorAll(".reveal");
-      function show(item) { item.classList.add("on"); }
-      if (!("IntersectionObserver" in window)) {
-        items.forEach(show);
-        return;
-      }
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            show(entry.target);
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.08, rootMargin: "40px" });
-      items.forEach(function (item) { observer.observe(item); });
-    })();
+    // The full library owns search, category filters, and the single video modal.
+    if (window.BingwaTutorials) window.BingwaTutorials.renderLibrary({ gridId: "tutorialGrid", tabsId: "tutorialTabs", searchId: "tutorialSearch", emptyId: "tutorialEmpty", modalId: "videoModal" });
   </script>
 </body>
 </html>

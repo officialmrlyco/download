@@ -6,6 +6,8 @@ Current release: Bingwa Flash `v1.3.8` (Build `38`). The installer button points
 
 The page intentionally uses `noindex` meta tags instead of a blocking `robots.txt` rule. Search crawlers must be able to fetch the page before they can remove it from search results.
 
+The installer and tutorial library share `styles.css` and `theme.js`. The shared theme key is `bf-theme`, so a visitor's light/dark choice follows them across both pages. The visual system uses flat surfaces, thin borders, yellow release emphasis, and Bingwa green actions so the installer remains clear on phones and desktops.
+
 Cloudflare DNS should contain this record:
 
 ```text
