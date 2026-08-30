@@ -3,7 +3,6 @@
   "use strict";
 
   var root = document.documentElement;
-  // Private browsing can deny storage; the visual switch still works for that visit.
   var storage = {
     get: function () { try { return localStorage.getItem("bf-theme"); } catch (error) { return null; } },
     set: function (value) { try { localStorage.setItem("bf-theme", value); } catch (error) {} }
@@ -13,7 +12,7 @@
 
   function updateThemeButton() {
     var dark = root.getAttribute("data-theme") === "dark";
-    document.querySelectorAll("[data-theme-toggle]").forEach(function (button) {
+    document.querySelectorAll("[data-theme-toggle], .theme-toggle").forEach(function (button) {
       var icon = button.querySelector("[data-theme-icon]");
       if (icon) icon.textContent = dark ? "☼" : "☾";
       button.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
@@ -27,6 +26,15 @@
     storage.set(next);
     updateThemeButton();
   }
+
+  // Event delegation ensures clicking the button or its children always toggles theme
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest("[data-theme-toggle], .theme-toggle");
+    if (btn) {
+      e.preventDefault();
+      toggleTheme();
+    }
+  });
 
   function bindMenu() {
     document.querySelectorAll("[data-menu-toggle]").forEach(function (button) {
@@ -50,7 +58,6 @@
       button.addEventListener("click", function () {
         var target = document.getElementById(button.getAttribute("data-copy-target"));
         var original = button.textContent;
-        // Keep unsupported or denied clipboard access visible instead of failing silently.
         if (!target || !navigator.clipboard) {
           button.textContent = "Copy unavailable";
           window.setTimeout(function () { button.textContent = original; }, 1800);
@@ -68,12 +75,15 @@
   }
 
   window.toggleTheme = toggleTheme;
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll("[data-theme-toggle]").forEach(function (button) {
-      button.addEventListener("click", toggleTheme);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      updateThemeButton();
+      bindMenu();
+      bindCopyButtons();
     });
+  } else {
     updateThemeButton();
     bindMenu();
     bindCopyButtons();
-  });
+  }
 })();
