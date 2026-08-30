@@ -1,6 +1,6 @@
 /*
  * Download site stylesheet for download.bingwaflash.co.ke
- * Clean, centered SaaS product installer layout matching the master design.
+ * Palette strictly uses Safaricom Green, Vivid Yellow/Gold, Pure Black, and Crisp White.
  */
 :root {
   --green: #15a76c;
@@ -14,45 +14,43 @@
   --radius-lg: 16px;
   --radius-xl: 20px;
   --pill: 999px;
-  --shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 [data-theme="dark"] {
-  --page: #0b131e;               /* Deep rich navy-slate background */
-  --paper: #111d2c;              /* Card surface */
-  --paper-soft: #18283b;         /* Raised surface */
-  --paper-muted: #0d1724;        /* Input background */
-  --ink: #f8fafc;                /* Bright white text */
-  --muted: #94a3b8;              /* Secondary slate text */
-  --soft: #64748b;               /* Helper text */
-  --rule: #1e3046;               /* Crisp 1px border */
-  --rule-strong: #2a415e;        /* Higher contrast border */
-  --header: #0b131e;
+  --page: #060907;               /* Pure deep black tone */
+  --paper: #0e1410;              /* Card surface */
+  --paper-soft: #16201a;         /* Raised surface */
+  --paper-muted: #0a0e0b;        /* Input background */
+  --ink: #ffffff;                /* Bright white text */
+  --muted: #a1a8a3;              /* Secondary text */
+  --soft: #6b756e;               /* Helper text */
+  --rule: #1c2720;               /* Crisp 1px border */
+  --rule-strong: #27382d;        /* Higher contrast border */
+  --header: #060907;
   --selection: rgba(21, 167, 108, 0.15);
-  --badge-green: rgba(21, 167, 108, 0.15);
-  --badge-orange: rgba(245, 158, 11, 0.15);
-  --badge-purple: rgba(168, 85, 247, 0.15);
-  --badge-blue: rgba(59, 130, 246, 0.15);
+  --badge-green: rgba(21, 167, 108, 0.18);
+  --badge-yellow: rgba(250, 204, 21, 0.18);
+  --badge-neutral: rgba(255, 255, 255, 0.08);
   color-scheme: dark;
 }
 
 [data-theme="light"] {
-  --page: #f8fafc;               /* Clean light background */
-  --paper: #ffffff;              /* Pure white card surface */
-  --paper-soft: #f1f5f9;         /* Elevated surface */
-  --paper-muted: #f8fafc;        /* Input background */
-  --ink: #0f172a;                /* Dark text */
-  --muted: #475569;              /* Secondary slate text */
-  --soft: #94a3b8;               /* Helper text */
-  --rule: #e2e8f0;               /* Slate-200 border */
-  --rule-strong: #cbd5e1;        /* Field border */
+  --page: #ffffff;               /* Pure white light background */
+  --paper: #fbfcfb;              /* Clean white surface */
+  --paper-soft: #f2f4f2;         /* Elevated surface */
+  --paper-muted: #f7f9f7;        /* Input background */
+  --ink: #0a0e0b;                /* Dark text */
+  --muted: #4b554e;              /* Secondary text */
+  --soft: #8a948d;               /* Helper text */
+  --rule: #e2e6e3;               /* Clean border */
+  --rule-strong: #cbcfcc;        /* Field border */
   --header: #ffffff;
-  --selection: rgba(21, 167, 108, 0.08);
+  --selection: rgba(21, 167, 108, 0.1);
   --badge-green: #ecfdf5;
-  --badge-orange: #fffbeb;
-  --badge-purple: #faf5ff;
-  --badge-blue: #eff6ff;
+  --badge-yellow: #fefce8;
+  --badge-neutral: #f3f4f6;
   color-scheme: light;
 }
 
@@ -136,14 +134,14 @@ button, input { font: inherit; }
   place-items: center;
   border: 1px solid var(--rule);
   background: var(--paper);
-  color: var(--ink);
+  color: var(--yellow);
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: var(--transition);
 }
 .theme-toggle:hover, .menu-toggle:hover {
-  color: var(--green);
-  border-color: var(--green);
+  color: var(--yellow-strong);
+  border-color: var(--yellow);
 }
 .menu-toggle {
   display: none;
@@ -179,7 +177,7 @@ button, input { font: inherit; }
   gap: 6px;
   padding: 6px 14px;
   background: var(--selection);
-  border: 1px solid rgba(21, 167, 108, 0.25);
+  border: 1px solid rgba(21, 167, 108, 0.3);
   border-radius: var(--pill);
   font-size: 0.76rem;
   font-weight: 700;
@@ -293,7 +291,7 @@ h1.hero-title .hero-title-accent {
 }
 .stat-col strong {
   display: block;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 800;
   color: var(--ink);
   letter-spacing: -0.02em;
@@ -343,9 +341,8 @@ h1.hero-title .hero-title-accent {
 }
 .quick-card-icon svg { width: 20px; height: 20px; }
 .quick-card-icon.green { background: var(--badge-green); color: var(--green); }
-.quick-card-icon.orange { background: var(--badge-orange); color: #d97706; }
-.quick-card-icon.purple { background: var(--badge-purple); color: #9333ea; }
-.quick-card-icon.blue { background: var(--badge-blue); color: #2563eb; }
+.quick-card-icon.yellow { background: var(--badge-yellow); color: var(--yellow-strong); }
+.quick-card-icon.neutral { background: var(--badge-neutral); color: var(--ink); }
 
 .quick-card h3 {
   margin: 0 0 4px;
@@ -640,7 +637,7 @@ h1.hero-title .hero-title-accent {
   font-weight: 800;
 }
 .tutorial-chip { background: var(--selection); color: var(--green); }
-.tutorial-label { background: var(--yellow); color: #0b131e; }
+.tutorial-label { background: var(--yellow); color: #060907; }
 .tutorial-duration { color: var(--soft); }
 
 .view-all-row {
@@ -700,7 +697,7 @@ h1.hero-title .hero-title-accent {
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background: rgba(11, 19, 30, 0.7);
+  background: rgba(6, 9, 7, 0.75);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
