@@ -779,6 +779,18 @@ footer {
   text-align: center;
 }
 
+/* Parent-company credit uses the same footer contrast and interaction language as support links. */
+.footer-copy a {
+  color: inherit;
+  font-weight: 800;
+  text-underline-offset: 3px;
+}
+
+.footer-copy a:hover,
+.footer-copy a:focus-visible {
+  color: var(--green);
+}
+
 /* RESPONSIVENESS */
 @media(max-width: 900px) {
   .site-nav { display: none; }
