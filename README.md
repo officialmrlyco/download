@@ -2,7 +2,7 @@
 
 This repository publishes the direct installer page for `download.bingwaflash.co.ke`.
 
-Current release: Bingwa Flash `v1.4.2` (Build `42`). The installer button points to the mutable GitHub release asset tagged `v42`, and the page publishes the release SHA-256 checksum for verification. Release immutability is intentionally disabled so the same asset name and URL can be replaced after a corrected build is verified.
+Current release: Bingwa Flash `v1.4.2` (Build `42`). The installer buttons point to the mutable GitHub release asset tagged `v42` with a build-specific cache key. Its verified size is `16,643,996` bytes and SHA-256 is `cb486f2a5b2c0a42d0cb198705852b1367063f19b5043284e786a318e013c24d`. Release immutability is intentionally disabled so the same asset name and URL can be replaced after a corrected build is verified.
 
 The page intentionally uses `noindex` meta tags instead of a blocking `robots.txt` rule. Search crawlers must be able to fetch the page before they can remove it from search results.
 
