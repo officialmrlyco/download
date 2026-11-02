@@ -7,3 +7,9 @@
 - `index.html` appends `?build=cb486f2a5b2c0a42` to every APK link, and shows matching size/checksum. `README.md` documents the exact bytes and hash. Keep Build 42 / v1.4.2 and filename unchanged.
 - Run `node --test tests/download-metadata.test.mjs` after touching release metadata; it checks that all installer anchors have the cache key and the displayed hash/size match the recorded release.
 - Release notes cover transaction actions, new-client insights/profile copying, and silent USSD admission/pending handling. Do not promise elimination of carrier errors or claim physical-device acceptance.
+
+
+## Website logo payload optimization (2026-11-02)
+
+- Preserved the 720x720 transparent PNG at its existing path and encoded a 256-color indexed palette with alpha. Download metadata and page references are unchanged.
+- Before/after bytes: `logo.png` 208,654 -> 32,304 (720 x 720).
